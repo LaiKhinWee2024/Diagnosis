@@ -1,0 +1,6 @@
+openai==0.28
+streamlit 
+streamlit-chat
+halo
+openai
+pyyaml
