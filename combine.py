@@ -37,7 +37,7 @@ def main():
 
     # Map model option to actual model names
     model_map = {"Base model": "gpt-3.5-turbo-1106",
-                 "PubMed": "gpt-3.5-turbo-0125",
+                 "PubMed": "ft:gpt-3.5-turbo-0613:personal::8gPrCzxV",
                  "Diagnostic Bot": "custom_model"}  # Replace "custom_model" with the actual model name
 
     selected_model = model_map[model_option]
