@@ -39,8 +39,7 @@ def main():
     model_map = {"Base model": "gpt-3.5-turbo-1106",
                  "PubMed": "ft:gpt-3.5-turbo-0613:personal::8gPrCzxV",
                  "MIMIC III": "ft:gpt-3.5-turbo-0613:personal::8sQDXUeK"
-                 "Diagnostic Bot": "custom_model"
-                }  
+                 "Diagnostic Bot": "custom_model"}  
 
     selected_model = model_map[model_option]
 
