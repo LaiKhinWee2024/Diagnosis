@@ -51,7 +51,7 @@ def custom_chatbot():
     # Loop until user types "DONE"
     while text != 'DONE':
         # Get user input
-        text = st.text_area("Describe your symptoms to the GPT–EMR Chatbot. Type DONE when done.",
+        text = st.text_input("Describe your symptoms to the GPT–EMR Chatbot. Type DONE when done.",
                             key=f"input_{input_index}", value=None)
         input_index += 1
 
