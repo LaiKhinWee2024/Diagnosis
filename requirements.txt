@@ -1,7 +1,7 @@
 openai==0.28
+langchain
 streamlit 
 streamlit-chat
 halo
 openai
 pyyaml
-langchain
