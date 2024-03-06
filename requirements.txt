@@ -4,3 +4,4 @@ streamlit-chat
 halo
 openai
 pyyaml
+langchain
