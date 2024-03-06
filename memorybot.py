@@ -64,7 +64,7 @@ def main():
             llm = OpenAI(
                 openai_api_key = api,
                 temperature = temperature,
-                model_name = MODEL,
+                model_name = selected_model,
             )
             
             if "entity_memory" not in st.session_state:
