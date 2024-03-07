@@ -27,10 +27,10 @@ openai_api_key = st.secrets["openai_api_key"]
 
 
 def get_text():
-        input_text = st.text_input("Medical Inquiries: ",
-                                  st.session_state["input"],
-                                  key="input")
-        return input_text
+    input_text = st.text_input("Medical Inquiries: ",
+                               st.session_state["input"],
+                               key="input")
+    return input_text
 
 
 # Main Streamlit code
@@ -66,46 +66,41 @@ def main():
             llm = OpenAI(
                 openai_api_key=openai_api_key,
                 temperature=temperature,
-                model_name=selected_model,
+                model_name=selected_model
             )
-        except ValidationError as e:
-            st.error(f"Validation error: {e}")
-            st.error(f"Validation error: {e}")
-            st.error(f"openai_api_key: {openai_api_key}")
-            st.error(f"temperature: {temperature}")
-            st.error(f"selected_model: {selected_model}")
 
-            
-            if "entity_memory" not in st.session_state:
-                st.session_state.entity_memory = ConversationEntityMemory(llm = llm, k = 10)
-            
             # Create the conversation Chain
-            Conversation = ConversationChain(
-                llm = llm,
-                prompt = ENTITY_MEMORY_CONVERSATION_TEMPLATE, 
-                memory = st.session_state.entity_memory
-                )
+            if "entity_memory" not in st.session_state:
+                st.session_state.entity_memory = ConversationEntityMemory(llm=llm, k=10)
 
-        try:
+            Conversation = ConversationChain(
+                llm=llm,
+                prompt=ENTITY_MEMORY_CONVERSATION_TEMPLATE,
+                memory=st.session_state.entity_memory
+            )
+
             user_input = get_text()
-            
-            if user_input and Conversation:  # Check if Conversation is not None before using it
+
+            if user_input and Conversation:
                 output = Conversation.run(input=user_input)
                 st.session_state.past.append(user_input)
                 st.session_state.generated.append(output)
 
-        except Exception as e:
-            st.error(f"Error occurred: {str(e)}")
+                # Display the conversation
+                for i in range(len(st.session_state['generated']) - 1, -1, -1):
+                    st.info(st.session_state["past"][i], icon="🤓")
+                    st.success(st.session_state["generated"][i], icon="🤖")
+        except ValidationError as e:
+            st.error(f"Validation error: {e}")
 
-        # Display the conversation
-        if Conversation:  # Check if Conversation is not None before using it
-            for i in range(len(st.session_state['generated'])-1,-1,-1):
-                st.info(st.session_state["past"][i], icon="🤓")
-                st.success(st.session_state["generated"][i], icon="🤖")
-        else:
-            st.warning("Conversation could not be initiated because API is not available.")
+    # Display the conversation
+    if Conversation:  # Check if Conversation is not None before using it
+        for i in range(len(st.session_state['generated'])-1,-1,-1):
+            st.info(st.session_state["past"][i], icon="🤓")
+            st.success(st.session_state["generated"][i], icon="🤖")
+    else:
+        st.warning("Conversation could not be initiated because API is not available.")
 
 
 if __name__ == '__main__':
     main()
-
