@@ -66,7 +66,7 @@ def main():
 
         if api:
             llm = OpenAI(
-                openai_api_key = api,
+                openai_api_key = openai_api_key,
                 temperature = temperature,
                 model_name = selected_model,
             )
