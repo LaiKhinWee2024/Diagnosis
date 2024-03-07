@@ -1,5 +1,7 @@
 openai
 langchain
+langchain-core
+langchain-community
 streamlit 
 streamlit-chat
 halo
