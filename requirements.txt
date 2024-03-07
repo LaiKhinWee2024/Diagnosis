@@ -5,4 +5,4 @@ streamlit-chat
 halo
 openai
 pyyaml
-lama-cpp-python
+llama-cpp-python
