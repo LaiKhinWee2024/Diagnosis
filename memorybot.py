@@ -21,7 +21,7 @@ if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = [] 
 
 
-api = st.secrets["openai_api_key"]
+openai_api_key = st.secrets["openai_api_key"]
 
 
 def get_text():
@@ -59,6 +59,15 @@ def main():
     else:
         # Display title
         st.title("GPT–EMR Chatbot")
+
+        try:
+            llm = OpenAI(
+                openai_api_key=openai_api_key,
+                temperature=temperature,
+                model_name=selected_model,
+            )
+        except ValidationError as e:
+            st.error(f"Validation error: {e}")
 
         if api:
             llm = OpenAI(
