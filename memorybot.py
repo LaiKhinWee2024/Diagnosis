@@ -32,9 +32,8 @@ def get_text():
 
 
 # Main Streamlit code
-# Display image
 
-    
+# Display image
 st.sidebar.image("https://raw.githubusercontent.com/LimVictoria/GPT-EMR-Chatbot/main/bot.webp", use_column_width=True)
 
 # Create a slider for temperature with a unique key
