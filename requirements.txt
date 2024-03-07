@@ -6,3 +6,4 @@ halo
 openai
 pyyaml
 lama-cpp-python
+pydantic<2
