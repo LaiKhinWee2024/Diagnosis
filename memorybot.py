@@ -15,7 +15,7 @@ if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = []
 
 # Set your OpenAI API key here
-api = st.secrets.get("api_secret")
+api = st.secrets["api_secret"]
 
 def get_text():
     input_text = st.text_input("Medical Inquiries: ", st.session_state["input"], key="input")
