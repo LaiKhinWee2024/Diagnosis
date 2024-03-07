@@ -1,9 +1,7 @@
 openai==0.28
-pip==24.0
 langchain
 streamlit 
 streamlit-chat
 halo
 openai
 pyyaml
-pydantic<2
