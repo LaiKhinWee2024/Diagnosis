@@ -20,13 +20,13 @@ if "input" not in st.session_state:
 if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = [] 
 
-# Set your OpenAI API key here
 # Load API keys from secrets file
 with open("secrets.toml", "r") as f:
     secrets = toml.load(f)
 
 # Retrieve OpenAI API key
-openai_api_key = secrets["api"]["OPENAI_API_KEY"]
+openai_api_key = secrets["openai_api_key"]
+
 
 def get_text():
         input_text = st.text_input("Medical Inquiries: ",
