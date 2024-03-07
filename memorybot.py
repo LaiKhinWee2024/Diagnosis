@@ -70,13 +70,6 @@ def main():
             )
         except ValidationError as e:
             st.error(f"Validation error: {e}")
-
-        if api:
-            llm = OpenAI(
-                openai_api_key = api,
-                temperature = temperature,
-                model_name = selected_model,
-            )
             
             if "entity_memory" not in st.session_state:
                 st.session_state.entity_memory = ConversationEntityMemory(llm = llm, k = 10)
