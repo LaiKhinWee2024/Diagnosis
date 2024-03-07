@@ -20,12 +20,9 @@ if "input" not in st.session_state:
 if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = [] 
 
-# Load API keys from secrets file
-with open("secrets.toml", "r") as f:
-    secrets = toml.load(f)
+# Retrieve OpenAI API key from Streamlit secrets
+openai_api_key = st.secrets["openai_api_key"]
 
-# Retrieve OpenAI API key
-openai_api_key = secrets["openai_api_key"]
 
 
 def get_text():
