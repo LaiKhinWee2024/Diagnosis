@@ -8,8 +8,6 @@ from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
 from langchain.llms import OpenAI
-from pydantic.error_wrappers import ValidationError
-
 
 # initialise session states
 
@@ -22,15 +20,14 @@ if "input" not in st.session_state:
 if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = [] 
 
-
-openai_api_key = st.secrets["openai_api_key"]
-
+# Set your OpenAI API key here
+api = st.secrets["api_secret"]
 
 def get_text():
-    input_text = st.text_input("Medical Inquiries: ",
-                               st.session_state["input"],
-                               key="input")
-    return input_text
+        input_text = st.text_input("Medical Inquiries: ",
+                                  st.session_state["input"],
+                                  key="input")
+        return input_text
 
 
 # Main Streamlit code
@@ -62,45 +59,43 @@ def main():
         # Display title
         st.title("GPT–EMR Chatbot")
 
-        try:
+        if api:
             llm = OpenAI(
-                openai_api_key=openai_api_key,
-                temperature=temperature,
-                model_name=selected_model
+                openai_api_key = api,
+                temperature = temperature,
+                model_name = selected_model,
             )
-
-            # Create the conversation Chain
+            
             if "entity_memory" not in st.session_state:
-                st.session_state.entity_memory = ConversationEntityMemory(llm=llm, k=10)
-
+                st.session_state.entity_memory = ConversationEntityMemory(llm = llm, k = 10)
+            
+            # Create the conversation Chain
             Conversation = ConversationChain(
-                llm=llm,
-                prompt=ENTITY_MEMORY_CONVERSATION_TEMPLATE,
-                memory=st.session_state.entity_memory
-            )
+                llm = llm,
+                prompt = ENTITY_MEMORY_CONVERSATION_TEMPLATE, 
+                memory = st.session_state.entity_memory
+                )
 
+        try:
             user_input = get_text()
-
-            if user_input and Conversation:
+            
+            if user_input and Conversation:  # Check if Conversation is not None before using it
                 output = Conversation.run(input=user_input)
                 st.session_state.past.append(user_input)
                 st.session_state.generated.append(output)
 
-                # Display the conversation
-                for i in range(len(st.session_state['generated']) - 1, -1, -1):
-                    st.info(st.session_state["past"][i], icon="🤓")
-                    st.success(st.session_state["generated"][i], icon="🤖")
-        except ValidationError as e:
-            st.error(f"Validation error: {e}")
+        except Exception as e:
+            st.error(f"Error occurred: {str(e)}")
 
-    # Display the conversation
-    if Conversation:  # Check if Conversation is not None before using it
-        for i in range(len(st.session_state['generated'])-1,-1,-1):
-            st.info(st.session_state["past"][i], icon="🤓")
-            st.success(st.session_state["generated"][i], icon="🤖")
-    else:
-        st.warning("Conversation could not be initiated because API is not available.")
+        # Display the conversation
+        if Conversation:  # Check if Conversation is not None before using it
+            for i in range(len(st.session_state['generated'])-1,-1,-1):
+                st.info(st.session_state["past"][i], icon="🤓")
+                st.success(st.session_state["generated"][i], icon="🤖")
+        else:
+            st.warning("Conversation could not be initiated because API is not available.")
 
 
 if __name__ == '__main__':
     main()
+
