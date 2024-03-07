@@ -21,12 +21,43 @@ if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = [] 
 
 # Set your OpenAI API key here
-# Load API keys from secrets file
-with open("secrets.toml", "r") as f:
-    secrets = toml.load(f)
+import os
+import toml
 
-# Retrieve OpenAI API key
-openai_api_key = secrets["api"]["OPENAI_API_KEY"]
+def load_api_key_from_secrets():
+    try:
+        # Get the absolute path to the directory containing this script
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        # Construct the full path to the secrets file
+        secrets_path = os.path.join(script_dir, "secrets.toml")
+
+        # Check if the file exists
+        if not os.path.exists(secrets_path):
+            raise FileNotFoundError("secrets.toml file not found.")
+
+        # Read the API key from the file
+        with open(secrets_path, "r") as f:
+            secrets = toml.load(f)
+            openai_api_key = secrets.get("OPENAI_API_KEY")
+            if openai_api_key:
+                return openai_api_key
+            else:
+                raise ValueError("OpenAI API key not found in secrets.toml")
+
+    except FileNotFoundError:
+        raise FileNotFoundError("secrets.toml file not found. Make sure it exists in the same directory as this script.")
+
+    except Exception as e:
+        raise Exception(f"An error occurred while loading API key from secrets.toml: {str(e)}")
+
+# Example usage
+try:
+    api_key = load_api_key_from_secrets()
+    print("OpenAI API key:", api_key)
+except Exception as e:
+    print("Error:", e)
+
 
 
 def get_text():
