@@ -1,7 +1,7 @@
 openai
 langchain
 langchain-core
-langchain-community
+langchain-community>=0.2.0
 streamlit 
 streamlit-chat
 halo
