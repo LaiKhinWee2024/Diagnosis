@@ -5,3 +5,5 @@ streamlit-chat
 halo
 openai
 pyyaml
+git+https://github.com/langchain-ai/langchain.git
+
