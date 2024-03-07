@@ -7,6 +7,7 @@ from custom_chatbot import custom_chatbot  # Import the custom chatbot function 
 from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
+from langchain_community.llms import OpenAI
 from langchain.llms import OpenAI
 
 # initialise session states
