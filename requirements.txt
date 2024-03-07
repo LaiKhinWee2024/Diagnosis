@@ -1,5 +1,5 @@
+git pull origin main  # Assuming you are on the main branch
 openai
-langchain
 langchain-community
 streamlit 
 streamlit-chat
