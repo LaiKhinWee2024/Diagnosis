@@ -8,6 +8,8 @@ from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
 from langchain.llms import OpenAI
+from langchain_community.chat_models import ChatOpenAI
+
 
 # initialise session states
 
@@ -60,11 +62,10 @@ def main():
         st.title("GPT–EMR Chatbot")
 
         if api:
-            llm = OpenAI(
+            llm = ChatOpenAI(
                 openai_api_key = api,
                 temperature = temperature,
                 model_name = selected_model
-            )
             
             if "entity_memory" not in st.session_state:
                 st.session_state.entity_memory = ConversationEntityMemory(llm = llm, k = 10)
