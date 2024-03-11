@@ -9,8 +9,6 @@ from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
 from langchain_community.chat_models import ChatOpenAI
 
-
-
 # initialise session states
 
 if "generated" not in st.session_state:
