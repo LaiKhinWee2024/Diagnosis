@@ -1,5 +1,4 @@
 openai
-langchain
 langchain-community
 streamlit 
 streamlit-chat
@@ -8,6 +7,5 @@ openai
 pyyaml
 streamlit
 pydantic
-git+https://github.com/LaiKhinWee2024/langchain.git
 
 
