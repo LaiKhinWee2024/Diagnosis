@@ -3,17 +3,11 @@ from streamlit_chat import message
 import os
 import toml
 #import openai
-#from custom_chatbot import custom_chatbot  # Import the custom chatbot function from the other file
-#from langchain.chains import ConversationChain
-#from langchain.chains.conversation.memory import ConversationEntityMemory
-#from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
-#from langchain_community.chat_models import ChatOpenAI
-
 from custom_chatbot import custom_chatbot  # Import the custom chatbot function from the other file
 from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
-from langchain.llms import OpenAI
+from langchain_community.chat_models import ChatOpenAI
 
 
 
