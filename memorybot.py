@@ -57,7 +57,7 @@ def main():
         custom_chatbot()
     else:
         # Display title
-        st.title("GPT–EMR Chatbot")
+        st.title("GPT–EMR Memorybot")
 
         if api:
             llm = ChatOpenAI(
