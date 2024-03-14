@@ -24,6 +24,9 @@ def generate_response(prompt, temperature, model):
     except Exception as e:
         return f"Error: {e}"
 
+# Create a role for chatbot
+role_bot = st.sidebar.text_input("Role of Chatbot: ", key = "role")
+
 # Main Streamlit code
 def main():
     # Display image
@@ -45,8 +48,6 @@ def main():
 
     selected_model = model_map[model_option]
 
-    # Create a role for chatbot
-    role_bot = st.sidebar.text_input("Role of Chatbot: ", key = "role")
 
     # Call the custom chatbot function if the "Diagnostic Bot" radio button is selected
     if model_option == "Diagnostic Bot":
