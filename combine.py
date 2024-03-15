@@ -13,7 +13,7 @@ def generate_response(prompt, temperature, model):
     try:
         completions = openai.ChatCompletion.create(
             model=model,
-            messages=[{'role': 'system', 'content': role_bot },
+            messages=[{'role': 'system', 'content': "Use everyday life examples to explain complex concept" },
                       {'role': 'user', 'content': prompt}
                      ],
             temperature=temperature
@@ -25,7 +25,7 @@ def generate_response(prompt, temperature, model):
         return f"Error: {e}"
 
 # Create a role for chatbot
-role_bot = st.sidebar.text_input("Role of Chatbot: ", key = "role")
+#role_bot = st.sidebar.text_input("Role of Chatbot: ", key = "role")
 
 # Main Streamlit code
 def main():
