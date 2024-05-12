@@ -43,7 +43,7 @@ def main():
     # Map model option to actual model names
     model_map = {"Base model": "gpt-3.5-turbo-1106",
                  "Med exam": "ft:gpt-3.5-turbo-0125:personal::9JAkVrEm",
-                 "PubMed": "ft:gpt-3.5-turbo-0125:personal::9Knxi9sm",
+                 "PubMed": "ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF",
                  "Both": "ft:gpt-3.5-turbo-0125:personal::9Knxi9sm",
                  "Diagnostic Bot": "custom_model"}  
 
