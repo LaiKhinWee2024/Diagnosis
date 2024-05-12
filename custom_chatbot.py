@@ -11,7 +11,7 @@ def custom_chatbot():
         with open(filepath, 'r', encoding='utf-8', errors='ignore') as infile:
             return infile.read()
 
-    def chatbot(prompt, model="gpt-3.5-turbo-0125", temperature=0, max_tokens=2000):
+    def chatbot(prompt, model="ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF", temperature=0, max_tokens=2000):
         max_retry = 7
         retry = 0
         while True:
