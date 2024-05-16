@@ -44,7 +44,7 @@ def main():
     model_map = {"Med exam": "ft:gpt-3.5-turbo-0125:personal::9JAkVrEm",
                  "Med exam / Consultation": "ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF",
                  "Med exam / PubMed": "ft:gpt-3.5-turbo-0125:personal::9Knxi9sm",
-                 "MMLU" : ft:gpt-3.5-turbo-0125:personal::9PV1y4D2,
+                 "MMLU" : "ft:gpt-3.5-turbo-0125:personal::9PV1y4D2",
                  "Diagnostic Bot": "custom_model"}  
 
     selected_model = model_map[model_option]
