@@ -48,7 +48,7 @@ def main():
         )
         
         if "entity_memory" not in st.session_state:
-            st.session_state.entity_memory = ConversationEntityMemory(llm=llm, k=10)
+            st.session_state.entity_memory = ConversationEntityMemory(llm=llm, k=2)
         
         # Create the conversation Chain
         Conversation = ConversationChain(
