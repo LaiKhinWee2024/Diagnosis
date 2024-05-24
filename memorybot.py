@@ -19,8 +19,7 @@ if "input" not in st.session_state:
     st.session_state["input"] = ""
 if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = [] 
-
-# Set your OpenAI API key here
+    
 api = st.secrets["api_secret"]
 
 def get_text():
@@ -38,10 +37,11 @@ def main():
 
     # Create a slider for temperature with a unique key
     temperature = st.sidebar.slider('Creativity of generated responses', min_value=0.1, max_value=1.0, step=0.1,
-                                    value=0.5, key="temperature_slider")
-
+                                    value=0.3, key="temperature_slider")
+    
+    model="ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF",  
     # Create radio button for model selection
-    MODEL = st.sidebar.radio("Select Model", ("Base model", "PubMed", "MIMIC III", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
+    # MODEL = st.sidebar.radio("Select Model", ("Base model", "PubMed", "MIMIC III", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
     
 
     # Map model option to actual model names
