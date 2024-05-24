@@ -39,9 +39,8 @@ def main():
     temperature = st.sidebar.slider('Creativity of generated responses', min_value=0.1, max_value=1.0, step=0.1,
                                     value=0.3, key="temperature_slider")
     
-    model="ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF",  
     # Create radio button for model selection
-    # MODEL = st.sidebar.radio("Select Model", ("Chatbot")
+    MODEL = st.sidebar.radio("Select Model", ("Chatbot")
     #, "PubMed", "MIMIC III", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
     
 
