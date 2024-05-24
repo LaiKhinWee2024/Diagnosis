@@ -44,8 +44,7 @@ def main():
         llm = ChatOpenAI(
             openai_api_key=api,
             temperature=temperature,
-            model_name="ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF"
-        )
+            model_name="ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF")
         
         if "entity_memory" not in st.session_state:
             st.session_state.entity_memory = ConversationEntityMemory(llm=llm, k=1)
