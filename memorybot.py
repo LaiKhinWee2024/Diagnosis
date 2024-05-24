@@ -41,14 +41,15 @@ def main():
     
     model="ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF",  
     # Create radio button for model selection
-    # MODEL = st.sidebar.radio("Select Model", ("Base model", "PubMed", "MIMIC III", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
+    # MODEL = st.sidebar.radio("Select Model", ("Chatbot")
+    #, "PubMed", "MIMIC III", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
     
 
     # Map model option to actual model names
-    model_map = {"Base model": "gpt-3.5-turbo-1106",
-                 "PubMed": "ft:gpt-3.5-turbo-0613:personal::8gPrCzxV",
-                 "MIMIC III": "ft:gpt-3.5-turbo-0613:personal::8sQDXUeK",
-                 "Diagnostic Bot": "custom_model"}  
+    model_map = {"Chatbot": "ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF")
+                 # "PubMed": "ft:gpt-3.5-turbo-0613:personal::8gPrCzxV",
+                 # "MIMIC III": "ft:gpt-3.5-turbo-0613:personal::8sQDXUeK",
+                 # "Diagnostic Bot": "custom_model"}  
 
     selected_model = model_map[MODEL]
 
