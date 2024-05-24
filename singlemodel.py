@@ -30,7 +30,7 @@ def main():
     st.sidebar.image("https://raw.githubusercontent.com/LimVictoria/GPT-EMR-Chatbot/main/bot.webp", use_column_width=True) #,caption="GPT–EMR")
 
     # Create a slider for temperature
-    temperature = st.sidebar.slider('Creativity of generated responses', min_value=0.1, max_value=1.0, step=0.1, value=0.5)
+    temperature = st.sidebar.slider('Creativity of generated responses', min_value=0.1, max_value=1.0, step=0.1, value=0.3)
     #st.sidebar.write("Adjust temperature with low temperature for accurate response, high temperature for creativity.")
 
 
