@@ -39,7 +39,7 @@ def main():
 
     # Display prompt box
     def get_text():
-        input_text = st.text_area("Medical Inquiries: ", key="input")
+        input_text = st.text_input("Medical Inquiries: ", key="input")
         return input_text
 
     # Define user input
