@@ -35,7 +35,7 @@ def main():
 
 
     # Display title
-    st.title("GPT–EMR Chatbot")
+    st.title("Chatbot A") #GPTEMR
 
     # Display prompt box
     def get_text():
