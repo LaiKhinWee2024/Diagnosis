@@ -40,8 +40,7 @@ def main():
                                     value=0.3, key="temperature_slider")
     
     # Create radio button for model selection
-    MODEL = st.sidebar.radio("Select Model", ("Chatbot")
-    #, "PubMed", "MIMIC III", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
+    MODEL = st.sidebar.radio("Select Model", ("Chatbot", "PubMed", "MIMIC III", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
     
 
     # Map model option to actual model names
