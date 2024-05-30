@@ -46,9 +46,9 @@ def main():
 
     # Map model option to actual model names
     model_map = {"Chatbot": "ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF"} 
-                 # "PubMed": "ft:gpt-3.5-turbo-0613:personal::8gPrCzxV",
-                 # "MIMIC III": "ft:gpt-3.5-turbo-0613:personal::8sQDXUeK",
-                 # "Diagnostic Bot": "custom_model"}  
+                 "PubMed": "ft:gpt-3.5-turbo-0613:personal::8gPrCzxV",
+                 "MIMIC III": "ft:gpt-3.5-turbo-0613:personal::8sQDXUeK",
+                 "Diagnostic Bot": "custom_model"}  
 
     selected_model = model_map[MODEL]
 
