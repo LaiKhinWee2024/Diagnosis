@@ -10,8 +10,8 @@ openai.api_key = st.secrets["api_secret"]
 def generate_response(prompt, temperature):
     try:
         completions = openai.ChatCompletion.create(
-            model="ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF",  
-            messages=[{'role': 'system', 'content': "You are a doctor that gives comprehensive answer. Explain your prescription." },
+            model="ft:gpt-3.5-turbo-0125:personal::92Yef7J0",  
+            messages=[{'role': 'system', 'content': "You are an honest doctor informing a patient about their chances of living." },
                       {'role': 'user', 'content': prompt}
                      ],
             temperature=temperature
