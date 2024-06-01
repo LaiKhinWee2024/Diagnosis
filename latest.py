@@ -38,12 +38,12 @@ def main():
                                     value=0.5, key="temperature_slider")
 
     # Create radio button for model selection
-    model_option = st.sidebar.radio("Select Model", ("Consultation", "Med exam / PubMed", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
+    model_option = st.sidebar.radio("Select Model", ("Consultation", "General Inquiries", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
 
     # Map model option to actual model names
     model_map = {"Med exam": "ft:gpt-3.5-turbo-0125:personal::9JAkVrEm",
-                 "Med exam / Consultation": "ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF",
-                 "Med exam / PubMed": "ft:gpt-3.5-turbo-0125:personal::9Knxi9sm",
+                 "Consultation": "ft:gpt-3.5-turbo-0125:personal::9NwRJ5QF",
+                 "General Inquiries": "ft:gpt-3.5-turbo-0125:personal::9Knxi9sm",
                  "MMLU" : "ft:gpt-3.5-turbo-0125:personal::9PV1y4D2",
                  "Diagnostic Bot": "custom_model"}  
 
