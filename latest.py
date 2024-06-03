@@ -35,7 +35,7 @@ def main():
 
     # Create a slider for temperature with a unique key
     temperature = st.sidebar.slider('Creativity of generated responses', min_value=0.1, max_value=1.0, step=0.1,
-                                    value=0.5, key="temperature_slider")
+                                    value=0.3, key="temperature_slider")
 
     # Create radio button for model selection
     model_option = st.sidebar.radio("Select Model", ("Consultation", "General Inquiries", "MIMIC–III", "Diagnostic Bot"))  # Changed "Custom" to "Diagnostic Bot"
