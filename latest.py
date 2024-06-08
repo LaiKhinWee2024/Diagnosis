@@ -13,7 +13,7 @@ def generate_response(prompt, temperature, model):
     try:
         completions = openai.ChatCompletion.create(
             model=model,
-            messages=[{'role': 'system', 'content': "You are a doctor treating your patient." },
+            messages=[{'role': 'system', 'content': "You are a honest doctor informing patient about their chances of living. Elaborate on the potential cause of death during the hospital stay." },
                       {'role': 'user', 'content': prompt}
                      ],
             temperature=temperature
